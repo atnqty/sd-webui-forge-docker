@@ -16,6 +16,18 @@ if [ ! -d "/app/sd-webui" ] || [ ! "$(ls -A "/app/sd-webui")" ]; then
     cd /app/sd-webui
   fi
 
+  if [ "$UI" = "reforge" ]; then
+    echo "Using reForge"
+    git clone https://github.com/Panchovix/stable-diffusion-webui-reForge.git /app/sd-webui
+    cd /app/sd-webui
+  fi
+
+  if [ "$UI" = "forge-classic" ]; then
+    echo "Using Forge classic"
+    git clone https://github.com/Haoming02/sd-webui-forge-classic.git /app/sd-webui
+    cd /app/sd-webui
+  fi
+
   chmod +x /app/sd-webui/webui.sh
 
   #i don't really know if this is the best way to do this
