@@ -12,7 +12,7 @@ Create a directory. Inside this directory, create a subdirectory named `data` (i
 ```YML
 services:
   webui:
-    image: "ghcr.io/yummiii/sd-webui-forge-docker:cuda-12.4.1"
+    image: "ghcr.io/atnqty/sd-webui-forge-docker:cuda-12.4.1"
     volumes:
       - "./data:/app/sd-webui"
     ports:
@@ -20,6 +20,9 @@ services:
     environment:
       - "ARGS=--listen --enable-insecure-extension-access" # Insecure extension access is required if you want to install extensions with the listen flag
       - "UI=forge" # Specifies the UI that will be downloaded, forge for the forge webui or auto for the AUTOMATIC1111 webui
+#     - "UI=auto"
+#     - "UI=reforge"
+#     - "UI=forge-classic"
     deploy:
       resources:
         reservations:
